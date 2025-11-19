@@ -20,7 +20,7 @@ namespace Tests
 		{
 			TestSetup();
 
-			var range = Enumerable.Range(0, 100).Where(x => (x % fizzNum) == 0).ToList();
+			var range = Enumerable.Range(1, 100).Where(x => (x % fizzNum) == 0).ToList();
 
 			range.ForEach(x =>
 			{
@@ -36,7 +36,7 @@ namespace Tests
 		{
 			TestSetup();
 
-			var range = Enumerable.Range(0, 100).Where(x => (x % buzzNum) == 0).ToList();
+			var range = Enumerable.Range(1, 100).Where(x => (x % buzzNum) == 0).ToList();
 
 			range.ForEach(x =>
 			{
@@ -52,7 +52,7 @@ namespace Tests
 		{
 			TestSetup();
 
-			var range = Enumerable.Range(0, 100).Where(x => (x % fizzNum) == 0 && (x % buzzNum) == 0).ToList();
+			var range = Enumerable.Range(1, 100).Where(x => (x % fizzNum) == 0 && (x % buzzNum) == 0).ToList();
 
 			range.ForEach(x =>
 			{
