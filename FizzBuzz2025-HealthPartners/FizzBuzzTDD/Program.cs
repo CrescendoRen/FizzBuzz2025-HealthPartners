@@ -11,7 +11,7 @@ namespace FizzBuzzTDD
             var services = CreateServices();
 
             var handler = services.GetRequiredService<IFizzBuzzHandler>();
-            var output = handler.RunFizzBuzz(0, 100, 3, 5);
+            var output = handler.RunFizzBuzz(1, 100, 3, 5);
             Console.WriteLine(output);
         }
 

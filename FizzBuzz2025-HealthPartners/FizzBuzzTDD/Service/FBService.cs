@@ -4,7 +4,15 @@
 	{
 		public string GetLine(int number, int fizzNum, int buzzNum)
 		{
-			throw new NotImplementedException();
+			var output = $"{number} ";
+
+			if (number % fizzNum == 0)
+				output = output + "Fizz";
+
+			if (number % buzzNum == 0)
+				output = output + "Buzz";
+
+			return output;
 		}
 	}
 }

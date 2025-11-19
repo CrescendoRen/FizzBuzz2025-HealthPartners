@@ -13,7 +13,19 @@ namespace FizzBuzzTDD.Handler
 
 		public string RunFizzBuzz(int startVal, int endVal, int fizzNum, int buzzNum)
 		{
-			throw new NotImplementedException();
+			var output = string.Empty;
+
+			for (var i = startVal; i <= endVal; i++)
+			{
+				output = output + fbService.GetLine(i, fizzNum, buzzNum);
+
+				if (i != endVal)
+				{
+					output = output + "\n";
+				}
+			}
+
+			return output;
 		}
 	}
 }
