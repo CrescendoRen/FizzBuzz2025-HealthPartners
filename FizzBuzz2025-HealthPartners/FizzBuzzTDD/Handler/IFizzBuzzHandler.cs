@@ -2,6 +2,6 @@
 {
 	public interface IFizzBuzzHandler
 	{
-		public void RunFizzBuzz(int startVal, int endVal, int fizzNum, int buzzNum);
+		public string RunFizzBuzz(int startVal, int endVal, int fizzNum, int buzzNum);
 	}
 }
