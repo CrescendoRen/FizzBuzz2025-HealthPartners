@@ -22,7 +22,8 @@ namespace Tests
 		{
 			TestSetup();
 			mockfbService.Setup(x => x.GetLine(It.IsAny<int>(), It.IsAny<int>(), It.IsAny<int>())).Returns("TEST");
-			handler.RunFizzBuzz(startNum, endNum, 3, 5);
+			var runFizzBuzzMethod = typeof(FizzBuzzHandler).GetMethod("RunFizzBuzz");
+			runFizzBuzzMethod.Invoke(handler, new object[] { startNum, endNum, 3, 5 });
 			mockfbService.Verify(x => x.GetLine(It.IsAny<int>(), It.IsAny<int>(), It.IsAny<int>()), Times.Exactly(endNum - startNum + 1));
 		}
 
@@ -33,7 +34,8 @@ namespace Tests
 		{
 			TestSetup();
 			mockfbService.Setup(x => x.GetLine(It.IsAny<int>(), It.IsAny<int>(), It.IsAny<int>())).Returns("TEST");
-			var response = handler.RunFizzBuzz(startNum, endNum, 3, 5);
+			var runFizzBuzzMethod = typeof(FizzBuzzHandler).GetMethod("RunFizzBuzz");
+			var response = (string)runFizzBuzzMethod.Invoke(handler, new object[] { startNum, endNum, 3, 5 });
 			Assert.That(response.Split('\n').Length, Is.EqualTo(endNum - startNum + 1));
 		}
 	}

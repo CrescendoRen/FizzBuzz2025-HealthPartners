@@ -21,10 +21,11 @@ namespace Tests
 			TestSetup();
 
 			var range = Enumerable.Range(1, 100).Where(x => (x % fizzNum) == 0).ToList();
+			var getLineMethod = typeof(FBService).GetMethod("GetLine");
 
 			range.ForEach(x =>
 			{
-				var response = service.GetLine(x, fizzNum, 1000);
+				var response = getLineMethod.Invoke(service, new object[] { x, fizzNum, 1000 });
 				Assert.That(response, Is.EqualTo($"{x} Fizz"));
 			});
 		}
@@ -37,10 +38,11 @@ namespace Tests
 			TestSetup();
 
 			var range = Enumerable.Range(1, 100).Where(x => (x % buzzNum) == 0).ToList();
+			var getLineMethod = typeof(FBService).GetMethod("GetLine");
 
 			range.ForEach(x =>
 			{
-				var response = service.GetLine(x, 1000, buzzNum);
+				var response = getLineMethod.Invoke(service, new object[] { x, 1000, buzzNum });
 				Assert.That(response, Is.EqualTo($"{x} Buzz"));
 			});
 		}
@@ -53,10 +55,11 @@ namespace Tests
 			TestSetup();
 
 			var range = Enumerable.Range(1, 100).Where(x => (x % fizzNum) == 0 && (x % buzzNum) == 0).ToList();
+			var getLineMethod = typeof(FBService).GetMethod("GetLine");
 
 			range.ForEach(x =>
-			{
-				var response = service.GetLine(x, fizzNum, buzzNum);
+			{ 
+				var response = getLineMethod.Invoke(service, new object[] { x, fizzNum, buzzNum });
 				Assert.That(response, Is.EqualTo($"{x} FizzBuzz"));
 			});
 		}

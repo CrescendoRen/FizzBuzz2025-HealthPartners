@@ -14,10 +14,12 @@ namespace FizzBuzzTDD.Handler
 		public string RunFizzBuzz(int startVal, int endVal, int fizzNum, int buzzNum)
 		{
 			var output = string.Empty;
+			var getLineMethod = typeof(IFBService).GetMethod("GetLine");
 
 			for (var i = startVal; i <= endVal; i++)
 			{
-				output = output + fbService.GetLine(i, fizzNum, buzzNum);
+				var getLineRes = (string)getLineMethod.Invoke(fbService, new object[] { i, fizzNum, buzzNum });
+				output = output + getLineRes;
 
 				if (i != endVal)
 				{
